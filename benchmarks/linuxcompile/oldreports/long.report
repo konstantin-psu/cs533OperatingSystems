@@ -1,0 +1,24 @@
+Run 1.
+
+real    13m28.335s
+user    12m18.812s
+sys     1m6.979s
+
+elapsed 808335780330
+
+Run 2.
+
+real    13m18.795s
+user    12m8.804s
+sys     1m4.510s
+
+elapsed 798796152921
+
+Run 3. 
+
+real    13m27.947s
+user    12m18.835s
+sys     1m5.992s
+
+elapsed 807948002854
+

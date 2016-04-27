@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in smitest*
+do
+    cp $i/report reports/$i
+done

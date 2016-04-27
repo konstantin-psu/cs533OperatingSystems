@@ -1,0 +1,1 @@
+cmd_/home/km/smidriver/smidriver.ko := ld -r -m elf_x86_64 -T /usr/src/linux-3.0.4/scripts/module-common.lds   -o /home/km/smidriver/smidriver.ko /home/km/smidriver/smidriver.o /home/km/smidriver/smidriver.mod.o

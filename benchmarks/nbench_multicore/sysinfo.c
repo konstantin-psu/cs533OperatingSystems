@@ -1,0 +1,10 @@
+sprintf(buffer,"**System used for compilation:\n");
+output_string(buffer);
+sprintf(buffer,"**Linux smitest 3.0.4 #7 SMP Fri Apr 27 12:01:38 PDT 2012 x86_64 x86_64 x86_64 G\n");
+output_string(buffer);
+sprintf(buffer,"**C compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-50)\n");
+output_string(buffer);
+sprintf(buffer,"**libc: libc-2.5.so\n");
+output_string(buffer);
+sprintf(buffer,"**Date of compilation: Thu May  8 22:02:51 PDT 2014\n");
+output_string(buffer);

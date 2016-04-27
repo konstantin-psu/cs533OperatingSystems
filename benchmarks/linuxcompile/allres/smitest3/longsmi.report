@@ -1,0 +1,140 @@
+Run 1 information
+172268197041
+
+curr elapsed nanoseconds 172268197041
+curr elapsed seconds 172.26819704
+curr smicount 163
+curr tsc 389493655920
+curr tsc in seconds 172.2565022559556610
+===============================================
+Run 2 information
+172614196343
+
+curr elapsed nanoseconds 172614196343
+curr elapsed seconds 172.61419634
+curr smicount 163
+curr tsc 390275943274
+curr tsc in seconds 172.6024747289624726
+===============================================
+Run 3 information
+172056199208
+
+curr elapsed nanoseconds 172056199208
+curr elapsed seconds 172.05619920
+curr smicount 163
+curr tsc 389014369604
+curr tsc in seconds 172.0445342736318099
+===============================================
+Run 4 information
+172550326346
+
+curr elapsed nanoseconds 172550326346
+curr elapsed seconds 172.55032634
+curr smicount 163
+curr tsc 390131424656
+curr tsc in seconds 172.5385602819126399
+===============================================
+Run 5 information
+172139170561
+
+curr elapsed nanoseconds 172139170561
+curr elapsed seconds 172.13917056
+curr smicount 163
+curr tsc 389190183638
+curr tsc in seconds 172.1222893540651869
+===============================================
+Run 6 information
+171900888806
+
+curr elapsed nanoseconds 171900888806
+curr elapsed seconds 171.90088880
+curr smicount 163
+curr tsc 388664084758
+curr tsc in seconds 171.8896181628091490
+===============================================
+Run 7 information
+172319817568
+
+curr elapsed nanoseconds 172319817568
+curr elapsed seconds 172.31981756
+curr smicount 163
+curr tsc 389610835200
+curr tsc in seconds 172.3083256749071038
+===============================================
+Run 8 information
+172109373143
+
+curr elapsed nanoseconds 172109373143
+curr elapsed seconds 172.10937314
+curr smicount 163
+curr tsc 389135208339
+curr tsc in seconds 172.0979761141130569
+===============================================
+Run 9 information
+172999358380
+
+curr elapsed nanoseconds 172999358380
+curr elapsed seconds 172.99935838
+curr smicount 164
+curr tsc 391147622630
+curr tsc in seconds 172.9879814879843051
+===============================================
+Run 10 information
+172270797207
+
+curr elapsed nanoseconds 172270797207
+curr elapsed seconds 172.27079720
+curr smicount 163
+curr tsc 389499758568
+curr tsc in seconds 172.2592011979871975
+===============================================
+Run 11 information
+172107528183
+
+curr elapsed nanoseconds 172107528183
+curr elapsed seconds 172.10752818
+curr smicount 162
+curr tsc 389130799727
+curr tsc in seconds 172.0960263722587772
+===============================================
+Run 12 information
+172839079698
+
+curr elapsed nanoseconds 172839079698
+curr elapsed seconds 172.83907969
+curr smicount 163
+curr tsc 390785287853
+curr tsc in seconds 172.8277362044397348
+===============================================
+Run 13 information
+172002470658
+
+curr elapsed nanoseconds 172002470658
+curr elapsed seconds 172.00247065
+curr smicount 163
+curr tsc 388892721556
+curr tsc in seconds 171.9907345083821069
+===============================================
+Run 14 information
+172457431083
+
+curr elapsed nanoseconds 172457431083
+curr elapsed seconds 172.45743108
+curr smicount 163
+curr tsc 389922042852
+curr tsc in seconds 172.4459596024281707
+===============================================
+Run 15 information
+173547430115
+
+curr elapsed nanoseconds 173547430115
+curr elapsed seconds 173.54743011
+curr smicount 164
+curr tsc 392386227188
+curr tsc in seconds 173.5357636805733072
+===============================================
+elapsed time nanosec average 172412150956.00000000
+elapsed time sec average 172.4121509560000000
+elapsed tsc 389818677717.53333333
+elapsed tsc sec 172.4002455933607120
+elapsed SMI 163.06666666

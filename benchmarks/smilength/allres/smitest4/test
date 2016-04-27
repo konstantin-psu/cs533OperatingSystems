@@ -1,0 +1,97 @@
+#!/bin/bash
+#first remove driver
+STARTRATE=880
+ENDRATE=950
+SLEEP=300
+TYPE=4
+STEP=2
+
+if [ $# -gt 0 ]; then
+SLEEP=$1
+TYPE=$2
+if [ $TYPE -ne 4 ] && [ $TYPE -ne 3 ]; then 
+echo "error type must be 3 or 4"
+exit
+fi
+fi
+
+while [ $STARTRATE -lt $ENDRATE ]
+do
+echo km2985$ | sudo -S rmmod smidriver.ko
+ls /proc/smidriver
+
+cd /home/km/smidriver
+OLDRATE=$(awk -v line="10" -v field="3" 'NR==line{print $field}' "smidriver.c")
+echo "OLDRATE $OLDRATE new rate $STARTRATE"
+sed -i "s/$OLDRATE/$STARTRATE/g" smidriver.c
+#cat smidriver.c
+make
+echo km2985$ | sudo -S insmod smidriver.ko
+ls /proc/smidriver
+cd /home/km/smilength
+
+echo 5 > /proc/smidriver
+
+echo "sleeping for $SLEEP seconds"
+echo "type $TYPE"
+SM=0
+TIME=$(date +%s%N)
+#TIME2=$(sshpass -p km2985$ ssh smitest2 date +%s%N)
+echo $TIME2
+#TIME3=$(sshpass -p km2985$ ssh smitest3 date +%s%N)
+#TIME4=$(sshpass -p km2985$ ssh smitest4 date +%s%N)
+#TIME5=$(sshpass -p km2985$ ssh smitest5 date +%s%N)
+#TIME6=$(sshpass -p km2985$ ssh smitest6 date +%s%N)
+#TIME7=$(sshpass -p km2985$ ssh smitest7 date +%s%N)
+#TIME8=$(sshpass -p km2985$ ssh smitest8 date +%s%N)
+TIMEHEAD=$(sshpass -p km2985$ ssh wyeasthead date +%s%N)
+start=$(date +%s%N)
+echo $TYPE  > /proc/smidriver
+echo 6 > /proc/smidriver
+sleep $SLEEP
+echo 6 > /proc/smidriver
+echo 5 > /proc/smidriver
+finish=$(date +%s%N)
+TIMEN=$(date +%s%N)
+#TIME2N=$(sshpass -p km2985$ ssh smitest2 date +%s%N)
+#TIME3N=$(sshpass -p km2985$ ssh smitest3 date +%s%N)
+#TIME4N=$(sshpass -p km2985$ ssh smitest4 date +%s%N)
+#TIME5N=$(sshpass -p km2985$ ssh smitest5 date +%s%N)
+#TIME6N=$(sshpass -p km2985$ ssh smitest6 date +%s%N)
+#TIME7N=$(sshpass -p km2985$ ssh smitest7 date +%s%N)
+#TIME8N=$(sshpass -p km2985$ ssh smitest8 date +%s%N)
+TIMEHEADN=$(sshpass -p km2985$ ssh wyeasthead date +%s%N)
+dmesg | grep SMI |  tail -2 > smicount
+SM1=$(awk -v line="1" -v field="3" 'NR==line{print $field}' "smicount")
+SM2=$(awk -v line="2" -v field="3" 'NR==line{print $field}' "smicount")
+rm smicount
+SM=$(($SM2 - $SM1))
+echo "at rate $STARTRATE" >> report
+echo "elapsed time $SLEEP" >> report
+echo "elapse counts $SM" >> report
+echo "diff smicount - time $(($SM-$SLEEP))" >> report
+echo "" >> report
+
+#echo "diff $(($TIME-$TIME2))" >> timediff$STARTRATE 
+#echo "diff $(($TIME-$TIME3))" >> timediff$STARTRATE
+#echo "diff $(($TIME-$TIME4))" >> timediff$STARTRATE
+#echo "diff $(($TIME-$TIME5))" >> timediff$STARTRATE
+#echo "diff $(($TIME-$TIME6))" >> timediff$STARTRATE
+#echo "diff $(($TIME-$TIME7))" >> timediff$STARTRATE
+#echo "diff $(($TIME-$TIME8))" >> timediff$STARTRATE
+echo "with real time" >> timediff$STARTRATE
+echo "diff $(($TIME-$TIMEHEAD))" >> timediff$STARTRATE
+
+echo "" >> timediff$STARTRATE
+
+#echo "diff $(($TIMEN-$TIME2N))" >> timediff$STARTRATE
+#echo "diff $(($TIMEN-$TIME3N))" >> timediff$STARTRATE 
+#echo "diff $(($TIMEN-$TIME4N))" >> timediff$STARTRATE
+#echo "diff $(($TIMEN-$TIME5N))" >> timediff$STARTRATE
+#echo "diff $(($TIMEN-$TIME6N))" >> timediff$STARTRATE
+#echo "diff $(($TIMEN-$TIME7N))" >> timediff$STARTRATE
+#echo "diff $(($TIMEN-$TIME8N))" >> timediff$STARTRATE
+echo "with real time after" >> timediff$STARTRATE
+echo "diff $(($TIMEN-$TIMEHEADN))" >> timediff$STARTRATE
+STARTRATE=$(($STARTRATE+$STEP))
+done

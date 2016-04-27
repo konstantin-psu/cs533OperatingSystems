@@ -1,0 +1,4 @@
+#!/bin/bash
+cat nosmi.report
+cat shortsmi.report
+cat longsmi.report

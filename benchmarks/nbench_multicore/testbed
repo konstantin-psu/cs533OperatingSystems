@@ -1,0 +1,78 @@
+#!/bin/bash
+INTERVAL=1
+NRUN=1
+X=0
+SRCH=""
+#(./nbench &) > ./results/res1
+#(./nbench &) > ./results/res2
+#(./nbench &) > ./results/res3
+#(./nbench &) > ./results/res4
+#while [ $X -lt $NRUN ] 
+#do
+#    sleep $INTERVAL
+#    X=$(($X+1))
+#    SRCH=$(ps -aF | grep "[n]bench")
+#    if [ -z "$SRCH" ]; then 
+#        echo "empty"
+#    fi
+#    echo "$SRCH"
+#done
+if [ $# -gt 0 ]; then
+    NRUN=$1
+fi
+
+RUNS=$(($NRUN*4))
+echo $RUNS
+echo 5 > /proc/smidriver
+start=$(date +%s%N)
+while [ $X -lt $NRUN ] 
+do
+./nbench >> results/nosmi/res1 & 
+./nbench >> results/nosmi/res2 &
+./nbench >> results/nosmi/res3 &
+./nbench >> results/nosmi/res4 &
+wait
+    X=$(($X+1))
+done
+echo "done with tests"
+new=$(date +%s%N)
+elapsed=$((new - start))
+average=$(echo "scale=8; $elapsed / $RUNS" | bc -l)
+echo "$average" >> results/nosmi/average
+echo 5 > /proc/smidriver
+
+X=0
+echo 3 > /proc/smidriver
+start=$(date +%s%N)
+while [ $X -lt $NRUN ] 
+do
+./nbench >> ./results/smi/res1 &  
+./nbench >> ./results/smi/res2 &
+./nbench >> ./results/smi/res3 &
+./nbench >> ./results/smi/res4 &
+wait
+    X=$(($X+1))
+done
+new=$(date +%s%N)
+elapsed=$((new - start))
+average=$(echo "scale=8; $elapsed / $RUNS" | bc -l)
+echo "$average" >> ./results/smi/average
+echo 5 > /proc/smidriver
+
+X=0
+echo 4 > /proc/smidriver
+start=$(date +%s%N)
+while [ $X -lt $NRUN ] 
+do
+./nbench >> ./results/longsmi/res1 &  
+./nbench >> ./results/longsmi/res2 &
+./nbench >> ./results/longsmi/res3 &
+./nbench >> ./results/longsmi/res4 &
+wait
+    X=$(($X+1))
+done
+new=$(date +%s%N)
+elapsed=$((new - start))
+average=$(echo "scale=8; $elapsed / $RUNS" | bc -l)
+echo "$average" >> ./results/longsmi/average
+echo 5 > /proc/smidriver

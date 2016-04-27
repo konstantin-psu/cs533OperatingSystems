@@ -1,0 +1,48 @@
+#!/bin/bash
+     echo "testscript started"
+
+if [ $# -gt 0 ]; then
+     echo "dummy run"
+    NRUNS=$1
+    if [ $NRUNS == "dummy" ]; then
+     echo "dummy run"
+     start=$(date +%s%N)
+     #(time (ls > /dev/null)) &> timereport 
+     echo 7 > /proc/smidriver
+     echo 6 > /proc/smidriver
+     (time -p (./nbench)) &> timereport 
+     echo 6 > /proc/smidriver
+     echo 7 > /proc/smidriver
+     echo 5 > /proc/smidriver
+     new=$(date +%s%N)
+     elapsed=$((new - start))
+ 
+     egrep "\b([0-9][0-9][0-9][0-9][0-9][0-9]+|Run|real|user|sys)\b" timereport > timereport2
+     rm timereport
+     mv timereport2 timereport
+ 
+     echo "$elapsed" > elapsed.build
+     exit
+    fi
+fi
+
+     start=$(date +%s%N)
+     echo 6 > /proc/smidriver
+     echo 7 > /proc/smidriver
+     #(time (ls > /dev/null)) &> timereport 
+     make -j 4 > /dev/null 
+     #sleep 2
+     #wait
+     #(time -p (./nbench)) &> timereport 
+     echo 7 > /proc/smidriver
+     echo 6 > /proc/smidriver
+     echo 5 > /proc/smidriver
+     new=$(date +%s%N)
+     elapsed=$((new - start))
+ 
+     #egrep "\b([0-9][0-9][0-9][0-9][0-9][0-9]+|Run|real|user|sys)\b" timereport > timereport2
+     #rm timereport
+     #mv timereport2 timereport
+ 
+     echo "$elapsed" > elapsed.build
+     echo "testscript exit"

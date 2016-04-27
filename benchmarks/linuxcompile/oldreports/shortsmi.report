@@ -1,0 +1,187 @@
+Run 1
+
+real	12m11.193s
+user	11m1.522s
+sys	0m59.354s
+
+elapsed 731194414475
+
+Run 1
+
+real	12m5.316s
+user	10m52.218s
+sys	0m58.105s
+elapsed 725317373458
+
+Run 2
+
+real	11m55.805s
+user	10m52.083s
+sys	0m58.251s
+elapsed 715806900545
+
+Run 3
+
+real	12m2.242s
+user	10m52.289s
+sys	0m57.956s
+elapsed 722243824897
+
+Run 4
+
+real	12m9.798s
+user	11m1.274s
+sys	0m59.823s
+elapsed 729799784148
+
+Run 5
+
+real	12m3.618s
+user	11m1.666s
+sys	0m59.343s
+elapsed 723619925005
+
+Run 6
+
+real	12m3.582s
+user	11m1.324s
+sys	0m59.707s
+elapsed 723583133342
+
+Run 7
+
+real	12m4.272s
+user	10m54.644s
+sys	0m58.375s
+elapsed 724274012681
+
+Run 8
+
+real	12m5.654s
+user	10m52.602s
+sys	0m58.423s
+elapsed 725655030945
+
+Run 9
+
+real	11m54.758s
+user	10m52.289s
+sys	0m58.182s
+elapsed 714759299578
+
+Run 10
+
+real	11m54.746s
+user	10m52.305s
+sys	0m58.097s
+elapsed 714747236193
+
+Run 11
+
+real	11m54.709s
+user	10m52.152s
+sys	0m58.178s
+elapsed 714710656178
+
+Run 12
+
+real	11m55.906s
+user	10m52.098s
+sys	0m58.455s
+elapsed 715907904449
+
+Run 13
+
+real	12m11.862s
+user	11m1.698s
+sys	0m59.664s
+elapsed 731863924096
+
+Run 14
+
+real	12m4.313s
+user	10m52.494s
+sys	0m58.066s
+elapsed 724314686703
+
+Run 15
+
+real	12m12.132s
+user	10m59.982s
+sys	0m59.606s
+elapsed 732133782884
+
+
+
+
+
+real	(12*60)+11.193
+real	(12*60)+5.316
+real	(11*60)+55.805
+real	(12*60)+2.242
+real	(12*60)+9.798
+real	(12*60)+3.618
+real	(12*60)+3.582
+real	(12*60)+4.272
+real	(12*60)+5.654
+real	(11*60)+54.758
+real	(11*60)+54.746
+real	(11*60)+54.709
+real	(11*60)+55.906
+real	(12*60)+11.862
+real	(12*60)+4.313
+real	(12*60)+12.132
+
+user	(11*60)+1.522
+user	(10*60)+52.218
+user	(10*60)+52.083
+user	(10*60)+52.289
+user	(11*60)+1.274
+user	(11*60)+1.666
+user	(11*60)+1.324
+user	(10*60)+54.644
+user	(10*60)+52.602
+user	(10*60)+52.289
+user	(10*60)+52.305
+user	(10*60)+52.152
+user	(10*60)+52.098
+user	(11*60)+1.698
+user	(10*60)+52.494
+user	(10*60)+59.982
+
+
+elapsed 731194414475
+elapsed 725317373458
+elapsed 715806900545
+elapsed 722243824897
+elapsed 729799784148
+elapsed 723619925005
+elapsed 723583133342
+elapsed 724274012681
+elapsed 725655030945
+elapsed 714759299578
+elapsed 714747236193
+elapsed 714710656178
+elapsed 715907904449
+elapsed 731863924096
+elapsed 724314686703
+elapsed 732133782884
+
+
+sys	0m 59.354
+sys	0m 58.105
+sys	0m 58.251
+sys	0m 57.956
+sys	0m 59.823
+sys	0m 59.343
+sys	0m 59.707
+sys	0m 58.375
+sys	0m 58.423
+sys	0m 58.182
+sys	0m 58.097
+sys	0m 58.178
+sys	0m 58.455
+sys	0m 59.664
+sys	0m 58.066
+sys	0m 59.606
+

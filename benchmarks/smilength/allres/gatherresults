@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mkdir smitest3
+sshpass -p km2985$ scp -r smitest3:/home/km/smilength/* smitest3/
+mkdir smitest4
+sshpass -p km2985$ scp -r smitest4:/home/km/smilength/* smitest4/
+mkdir smitest5
+sshpass -p km2985$ scp -r smitest5:/home/km/smilength/* smitest5/
+mkdir smitest6
+sshpass -p km2985$ scp -r smitest6:/home/km/smilength/* smitest6/
+mkdir smitest7
+sshpass -p km2985$ scp -r smitest7:/home/km/smilength/* smitest7/
+mkdir smitest8
+sshpass -p km2985$ scp -r smitest8:/home/km/smilength/* smitest8/

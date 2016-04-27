@@ -1,0 +1,55 @@
+at rate 966
+elapsed time 5000
+elapse counts 4983
+diff smicount - time -17
+
+at rate 956
+elapsed time 5000
+elapse counts 5002
+diff smicount - time 2
+
+at rate 957
+elapsed time 5000
+elapse counts 5012
+diff smicount - time 12
+
+at rate 958
+elapsed time 5000
+elapse counts 5026
+diff smicount - time 26
+
+at rate 959
+elapsed time 5000
+elapse counts 5010
+diff smicount - time 10
+
+at rate 960
+elapsed time 5000
+elapse counts 5016
+diff smicount - time 16
+
+at rate 961
+elapsed time 5000
+elapse counts 5006
+diff smicount - time 6
+
+at rate 962
+elapsed time 5000
+elapse counts 5001
+diff smicount - time 1
+
+at rate 963
+elapsed time 5000
+elapse counts 5022
+diff smicount - time 22
+
+at rate 964
+elapsed time 5000
+elapse counts 5002
+diff smicount - time 2
+
+at rate 965
+elapsed time 5000
+elapse counts 4997
+diff smicount - time -3
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+date
+sshpass -p km2985$ ssh smitest2 date
+sshpass -p km2985$ ssh smitest3 date
+sshpass -p km2985$ ssh smitest4 date
+sshpass -p km2985$ ssh smitest5 date
+sshpass -p km2985$ ssh smitest6 date
+sshpass -p km2985$ ssh smitest7 date
+sshpass -p km2985$ ssh smitest8 date

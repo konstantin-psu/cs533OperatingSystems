@@ -1,0 +1,8 @@
+#!/bin/bash
+
+list=$(ps -aF | pgrep nbench)
+
+for i in $list; do
+    echo "killing $i"
+    kill -9 $i
+done

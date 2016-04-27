@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+echo "no smi"
+cat nosmi/average
+echo "short smi"
+cat smi/average
+echo "long smi"
+cat longsmi/average

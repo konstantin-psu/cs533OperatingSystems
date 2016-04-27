@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FROM=$1
+TO=$2
+
+sshpass -p km2985$ scp $FROM $TO

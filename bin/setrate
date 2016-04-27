@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+STARTRATE=$1
+echo km2985$ | sudo -S rmmod smidriver.ko
+ls /proc/smidriver
+cd /home/km/smidriver
+OLDRATE=$(awk -v line="10" -v field="3" 'NR==line{print $field}' "smidriver.c")
+echo "OLDRATE $OLDRATE new rate $STARTRATE"
+sed -i "s/$OLDRATE/$STARTRATE/g" smidriver.c
+#cat smidriver.c
+make
+echo km2985$ | sudo -S insmod smidriver.ko
+ls /proc/smidriver
+cd -
+echo 5 > /proc/smidriver

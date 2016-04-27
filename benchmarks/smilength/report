@@ -1,0 +1,23 @@
+at rate 10
+elapsed time $
+elapse counts 0
+at rate 10
+elapsed time 300
+elapse counts 27285
+diff smicount - time 26985
+
+at rate 12
+elapsed time 300
+elapse counts 24999
+diff smicount - time 24699
+
+at rate 14
+elapsed time 300
+elapse counts 20001
+diff smicount - time 19701
+
+at rate 16
+elapsed time 300
+elapse counts 17648
+diff smicount - time 17348
+

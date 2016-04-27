@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sshpass -p km2985$ scp -r smitest2:/home/km/benchmarks/linuxcompile/*.report smitest3/
+sshpass -p km2985$ scp -r smitest3:/home/km/benchmarks/linuxcompile/*.report smitest3/
+sshpass -p km2985$ scp -r smitest4:/home/km/benchmarks/linuxcompile/*.report smitest4/
+sshpass -p km2985$ scp -r smitest5:/home/km/benchmarks/linuxcompile/*.report smitest5/
+sshpass -p km2985$ scp -r smitest6:/home/km/benchmarks/linuxcompile/*.report smitest6/
+sshpass -p km2985$ scp -r smitest7:/home/km/benchmarks/linuxcompile/*.report smitest7/
+sshpass -p km2985$ scp -r smitest8:/home/km/benchmarks/linuxcompile/*.report smitest8/

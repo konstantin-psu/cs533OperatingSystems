@@ -1,0 +1,10 @@
+#!/bin/bash
+
+z=1000
+for i in timediff*
+do
+    tm=$(awk -v line="19" -v field="2" 'NR==line{print $field}' "$i")
+    echo "($z,$tm)">>tmr
+    z=$(($z+1000))
+    echo $i
+done

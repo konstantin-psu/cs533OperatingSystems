@@ -1,0 +1,14 @@
+Run 1
+real 800.00
+user 0.00
+sys 0.00
+800002685587
+
+Run 2
+real 800.00
+user 0.00
+sys 0.00
+800002553662
+
+smicount 1606
+elapsed average 800002619624.50000000

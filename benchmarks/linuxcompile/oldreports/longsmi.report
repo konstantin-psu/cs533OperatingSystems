@@ -1,0 +1,169 @@
+sys secs average  1m4.15406250
+elapsed average   13m26
+user secs average 11m9.12350000
+real average :    13m 26.784625
+
+Run 1
+
+real	13m25.184s
+user	11m7.100s
+sys	1m1.235s
+elapsed 805185307503
+
+Run 1
+
+real	13m24.908s
+user	12m12.694s
+sys	1m5.485s
+elapsed 804909979912
+
+Run 2
+
+real	13m22.563s
+user	12m12.418s
+sys	1m5.789s
+elapsed 802565163805
+
+Run 3
+
+real	13m33.269s
+user	11m30.814s
+sys	1m3.484s
+elapsed 813270653026
+
+Run 4
+
+real	13m23.832s
+user	12m12.600s
+sys	1m6.455s
+elapsed 803833632073
+
+Run 5
+
+real	13m30.233s
+user	12m12.045s
+sys	1m6.344s
+elapsed 810234296741
+
+Run 6
+
+real	13m23.621s
+user	11m5.642s
+sys	1m0.724s
+elapsed 803622494035
+
+Run 7
+
+real	13m30.286s
+user	11m6.433s
+sys	1m0.955s
+elapsed 810287579851
+
+Run 8
+
+real	13m23.182s
+user	12m13.105s
+sys	1m5.489s
+elapsed 803184045534
+
+Run 9
+
+real	13m29.868s
+user	12m11.992s
+sys	1m6.811s
+elapsed 809869687815
+
+Run 10
+
+real	13m31.617s
+user	12m12.741s
+sys	1m5.867s
+elapsed 811618381308
+
+Run 11
+
+real	13m23.763s
+user	11m6.493s
+sys	1m1.109s
+elapsed 803765119008
+
+Run 12
+
+real	13m29.188s
+user	12m12.455s
+sys	1m5.633s
+elapsed 809190345792
+
+Run 13
+
+real	13m31.066s
+user	12m12.560s
+sys	1m5.819s
+elapsed 811067834876
+
+Run 14
+
+real	13m21.968s
+user	12m11.737s
+sys	1m6.039s
+elapsed 801969381187
+
+Run 15
+
+real	13m24.006s
+user	11m5.147s
+sys	1m0.462s
+elapsed 804007509131
+
+
+
+
+user	11m7.100s
+user	12m12.694s
+user	12m12.418s
+user	11m30.814s
+user	12m12.600s
+user	12m12.045s
+user	11m5.642s
+user	11m6.433s
+user	12m13.105s
+user	12m11.992s
+user	12m12.741s
+user	11m6.493s
+user	12m12.455s
+user	12m12.560s
+user	12m11.737s
+user	11m5.147s
+
+sys	1m 1.235
+sys	1m 5.485
+sys	1m 5.789
+sys	1m 3.484
+sys	1m 6.455
+sys	1m 6.344
+sys	1m 0.724
+sys	1m 0.955
+sys	1m 5.489
+sys	1m 6.811
+sys	1m 5.867
+sys	1m 1.109
+sys	1m 5.633
+sys	1m 5.819
+sys	1m 6.039
+sys	1m 0.462
+
+elapsed 804909979912
+elapsed 802565163805
+elapsed 813270653026
+elapsed 803833632073
+elapsed 810234296741
+elapsed 803622494035
+elapsed 810287579851
+elapsed 803184045534
+elapsed 809869687815
+elapsed 811618381308
+elapsed 803765119008
+elapsed 809190345792
+elapsed 811067834876
+elapsed 801969381187
+elapsed 804007509131

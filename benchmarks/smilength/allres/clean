@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for i in smitest*
+do
+    #cp $i/report reports/$i
+    cd $i
+    sed -i "s/at rate //g" report
+    sed -i "s/elapsed time [0-9][0-9][0-9]//g" report
+    sed -i "s/elapse counts [0-9][0-9][0-9]//g" report
+
+    sed -i "s/diff smicount - time //g" report
+    sed -i "/^$/d" report
+    sed -i "N;s/\n/,/" report
+    sed -i "s/^/(/g" report
+    sed -i "s/$/)/g" report
+    cd ..
+
+done

@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{KD}
+K.~L. Karavanic and B.~Delgado, {\em Performance Implication of System
+  Management Mode}.
+\newblock Portland, OR: IEEE, 2013.
+
+\bibitem{WK1}
+Wikipedia, {\em \url{http://en.wikipedia.org/wiki/Message_Passing_Interface}}.
+\newblock wiki, 2013.
+
+\bibitem{MPICH}
+{\em \url{http://www.mpich.org/static/docs/v3.1/www3/}}.
+
+\bibitem{NHPC}
+P.~Beckman, K.~Iskra, K.~Yoshii, S.~Coghlan, and A.~Nataraj, {\em Benchmarking
+  the effects of operating system interference on extreme-scale parallel
+  machines}.
+\newblock Cluster Computing 11(1): pp. 3-16, 2008.
+
+\bibitem{NETPERF}
+N.~official website, {\em \url{http://www.netperf.org}}.
+\newblock web.
+
+\bibitem{LMB}
+L.~McVoy, {\em lmbench: Portable tools for performance analysis}.
+\newblock Silicon Graphics, Inc , Carl Staelin {Hewlett-Packard Laboratories}.
+
+\bibitem{TUX}
+{\em \url{http://www.tux.org/~mayer/linux/byte/bdoc.pdf}}.
+\newblock TUX.com.
+
+\bibitem{HYPSENT}
+P.~N. A.~Azab, {\em HyperSentry: enabling stealthy in-context measurement of
+  hypervisor integrity}.
+\newblock CCS. Chicago, IL, 2010.
+
+\bibitem{HYPCH}
+a.~A. J.~Wang, A.~Stavrou, {\em HyperCheck: a hardware-assisted integrity
+  monitor}.
+\newblock Lect. Notes Comput. Sci. Lecture Notes in Computer Science (including
+  subseries Lecture Notes in Artificial Intelligence and Lecture Notes in
+  Bioinformatics) 6307LNCS: 158-177, 2010.
+
+\end{thebibliography}

@@ -1,0 +1,18 @@
+#!/bin/bash
+me=`hostname`
+target=smitest
+count=2
+max=9
+echo $me
+if [ "smitest" != "$me" ]; then
+sshpass -p km2985$ scp /home/km/bin/* "smitest:/home/km/bin"
+echo "smitest:/home/km/bin"
+fi
+while [ $count -lt $max ]
+do
+if [ "$target$count" != "$me" ]; then
+sshpass -p km2985$ scp /home/km/bin/* "$target$count:/home/km/bin"
+echo "$target$count:/home/km/bin"
+fi
+count=$(($count+1))
+done

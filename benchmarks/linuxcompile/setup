@@ -1,0 +1,224 @@
+#!/bin/bash 
+newf=$1
+if [ $# -lt 1 ]; then
+echo "Error: missing argument! number of runs required"
+exit
+fi
+LONG='long'
+SHORT='short'
+NO='no'
+COUNT=1
+NRUNS=$1
+#elapsed average
+ELAV=0
+TEMP=0
+NDUMMY=2
+TSCAVG=0
+SMIAVG=0
+NS=1000000000
+CPS=2260600000
+CPS=2261126000
+
+if [ $# -gt 1 ]; then 
+    NDUMMY=$2
+    echo "echo dummy $NDUMMY arg $1"
+fi
+
+prepare() {
+echo "prepare start"
+mkdir testbox
+cp -r clean/* testbox
+cp testscript testbox
+cp clean/.config  testbox
+echo "prepare exit"
+}
+
+clean() {
+rm -r testbox
+}
+
+
+rundummy() {
+COUNT=1
+REPORTNAME="../$1smi.report"
+REPORTPATH="$1smi.report"
+
+
+#if [ $# -lt 1 ]; then
+#echo "Error: missing argument! number of runs required"
+#exit
+while [ $COUNT -le $NDUMMY ]
+do
+    mkdir testbox
+    cp testscript testbox/
+    cp -r nbench/* testbox/
+    cd testbox
+    if [ $1 == "short" ];then
+        echo 3 > /proc/smidriver
+    fi
+    if [ $1 == "long" ];then
+        echo 4 > /proc/smidriver
+    fi
+    ./testscript dummy
+    echo $COUNT
+    echo "Run $COUNT" >> $REPORTNAME
+    cat timereport >> $REPORTNAME
+    cat elapsed.build >> $REPORTNAME
+    TEMP=$(cat elapsed.build)
+    echo "" >> $REPORTNAME
+    cd ..
+    ELAV=$(echo "scale=8; $ELAV+$TEMP" | bc -l)
+    clean $1
+    COUNT=$(($COUNT+1))
+done
+}
+
+gettsc() {
+echo "test"
+}
+
+if [ $NRUNS == "clean" ]; then
+ echo "cleaning"
+ clean
+ exit
+fi
+
+if [ $NRUNS == "dummy" ]; then
+ echo 5 > /proc/smidriver
+ rundummy $NO
+ ELAV=$(echo "scale=8; $ELAV/$NDUMMY" | bc -l)
+ echo "elapsed average $ELAV" >> $REPORTPATH
+ ELAV=0
+ dmesg | grep TSC | tail -2 >> tsccount
+ TSC1=$(awk -v line="1" -v field="2" 'NR==line{print $field}' "tsccount")
+ TSC2=$(awk -v line="2" -v field="2" 'NR==line{print $field}' "tsccount")
+ echo "tsc values before and after $TSC1 $TSC2"
+ echo "TSCcount1 $TSC1" >> $REPORTPATH
+ echo "TSCcount2 $TSC2" >> $REPORTPATH
+ TSC1=$(($TSC2-$TSC1))
+ echo "TSCcount $TSC1" >> $REPORTPATH
+ rm tsccount
+ echo 3 > /proc/smidriver
+ echo 6 > /proc/smidriver
+ rundummy $SHORT
+ echo 6 > /proc/smidriver
+ #echo 5 > /proc/smidriver
+ ELAV=$(echo "scale=8; $ELAV/$NDUMMY" | bc -l)
+ echo "elapsed average $ELAV" >> $REPORTPATH
+ ELAV=0
+ dmesg | grep TSC | tail -2 >> tsccount
+ TSC1=$(awk -v line="1" -v field="2" 'NR==line{print $field}' "tsccount")
+ TSC2=$(awk -v line="2" -v field="2" 'NR==line{print $field}' "tsccount")
+ echo "tsc values before and after $TSC1 $TSC2"
+ echo "TSCcount1 $TSC1" >> $REPORTPATH
+ echo "TSCcount2 $TSC2" >> $REPORTPATH
+ TSC1=$(($TSC2-$TSC1))
+ echo "TSCcount $TSC1" >> $REPORTPATH
+ rm tsccount
+ dmesg | grep SMI | tail -2 >> smicount
+ NUM1=$(awk -v line="1" -v field="3" 'NR==line{print $field}' "smicount")
+ NUM2=$(awk -v line="2" -v field="3" 'NR==line{print $field}' "smicount")
+ NUM1=$(($NUM2-$NUM1))
+ echo "smicount $NUM1" >> $REPORTPATH
+ rm smicount
+ #echo 4 > /proc/smidriver
+ echo 6 > /proc/smidriver
+ rundummy $LONG
+ echo 6 > /proc/smidriver
+ #echo 5 > /proc/smidriver
+ dmesg | grep TSC | tail -2 >> tsccount
+ TSC1=$(awk -v line="1" -v field="2" 'NR==line{print $field}' "tsccount")
+ TSC2=$(awk -v line="2" -v field="2" 'NR==line{print $field}' "tsccount")
+ echo "tsc values before and after $TSC1 $TSC2"
+ echo "TSCcount1 $TSC1" >> $REPORTPATH
+ echo "TSCcount2 $TSC2" >> $REPORTPATH
+ TSC1=$(($TSC2-$TSC1))
+ echo "TSCcount $TSC1" >> $REPORTPATH
+ rm tsccount
+ dmesg | grep SMI | tail -2 >> smicount
+ NUM1=$(awk -v line="1" -v field="3" 'NR==line{print $field}' "smicount")
+ echo "num1 $NUM1"
+ NUM2=$(awk -v line="2" -v field="3" 'NR==line{print $field}' "smicount")
+ echo "num2 $NUM2"
+ NUM1=$(($NUM2-$NUM1))
+ echo "smicount $NUM1" >> $REPORTPATH
+ rm smicount
+ ELAV=$(echo "scale=8; $ELAV/$NDUMMY" | bc -l)
+ echo "elapsed average $ELAV" >> $REPORTPATH
+ ELAV=0
+  exit
+fi
+
+
+run() {
+echo "CLEAN RUN"
+COUNT=1
+REPORTNAME="../$1smi.report"
+REPORTPATH="$1smi.report"
+echo 5 > /proc/smidriver
+while [ $COUNT -le $NRUNS ]
+do
+    prepare
+    cd testbox
+    if [ $1 == "short" ];then
+        echo 3 > /proc/smidriver
+    fi
+    if [ $1 == "long" ];then
+        echo 4 > /proc/smidriver
+    fi
+    ./testscript
+          dmesg | grep TSC | tail -2 >> tsccount
+          TSC1=$(awk -v line="1" -v field="2" 'NR==line{print $field}' "tsccount")
+          TSC2=$(awk -v line="2" -v field="2" 'NR==line{print $field}' "tsccount")
+          echo "tsc values before and after $TSC1 $TSC2"
+          TSC1=$(($TSC2-$TSC1))
+          rm tsccount
+          dmesg | grep SMI | tail -2 >> smicount
+          NUM1=$(awk -v line="1" -v field="3" 'NR==line{print $field}' "smicount")
+          NUM2=$(awk -v line="2" -v field="3" 'NR==line{print $field}' "smicount")
+          echo "smicount values before and after $NUM1 $NUM2"
+          NUM1=$(($NUM2-$NUM1))
+          rm smicount
+    echo $COUNT
+    echo "Run $COUNT information" >> $REPORTNAME
+    #need to echo TEMP TSC SMI TEMP in sec TSC in sec
+    #cat timereport >> $REPORTNAME
+    cat elapsed.build >> $REPORTNAME
+    TEMP=$(cat elapsed.build)
+    echo "" >> $REPORTNAME
+    echo "curr elapsed nanoseconds $TEMP" >> $REPORTNAME #done
+    echo "curr elapsed seconds $(echo "scale=8; $TEMP/$NS" | bc -l)" >> $REPORTNAME
+    echo "curr smicount $NUM1" >> $REPORTNAME
+    echo "curr tsc $TSC1" >> $REPORTNAME
+    echo "curr tsc in seconds $(echo "scale=16; $TSC1/$CPS" | bc -l)" >> $REPORTNAME
+    echo "===============================================" >> $REPORTNAME
+    echo "==============================================="
+    cd ..
+    ELAV=$(echo "scale=8; $ELAV+$TEMP" | bc -l)
+    TSCAVG=$(echo "scale=8; $TSCAVG+$TSC1" | bc -l)
+    SMIAVG=$(echo "scale=8; $SMIAVG+$NUM1" | bc -l)
+    clean $1
+    COUNT=$(($COUNT+1))
+done
+echo 5 > /proc/smidriver
+ ELAV=$(echo "scale=8; $ELAV/$NRUNS" | bc -l)
+ TSCAVG=$(echo "scale=8; $TSCAVG/$NRUNS" | bc -l)
+ SMIAVG=$(echo "scale=8; $SMIAVG/$NRUNS" | bc -l)
+ NS1=$(echo "scale=16; $ELAV/$NS" | bc -l)
+ CPS1=$(echo "scale=16; $TSCAVG/$CPS" | bc -l)
+ echo "elapsed time nanosec average $ELAV" >> $REPORTPATH
+ echo "elapsed time sec average $NS1" >> $REPORTPATH
+ echo "elapsed tsc $TSCAVG" >> $REPORTPATH
+ echo "elapsed tsc sec $CPS1" >> $REPORTPATH
+ echo "elapsed SMI $SMIAVG" >> $REPORTPATH
+    ELAV=0
+    TSCAVG=0
+    SMIAVG=0
+    NS1=0
+    CPS1=0
+ echo "####### clean run exit"
+}
+
+ run $NO
+ run $SHORT
+ run $LONG
